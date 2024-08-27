@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.sjp.com/datatransformation" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.sjp.com/datatransformation">
+	<xs:element name="printPDFRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="request" type="tns:DTPrintRequest"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="DTPrintRequest">
+		<xs:sequence>
+			<xs:element minOccurs="1" name="ApplicationID" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="1" name="ProductCode" nillable="true" type="xs:string"/>
+			<xs:element minOccurs="1" name="XMLDcoment" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="printPDFResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="return" type="tns:DTPrintResponse"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="DTPrintResponse">
+		<xs:sequence>
+			<xs:element minOccurs="1" name="Success" nillable="true" type="xs:boolean"/>
+			<xs:element minOccurs="1" name="ErrorMessage" nillable="true" type="xs:string"/>
+			<xs:element name="DocumentStream" type="xs:base64Binary" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
